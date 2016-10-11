@@ -1,9 +1,11 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import ngAnimate from 'angular-animate'
+import ngTouch from 'angular-touch'
 import slideShowComponent from './slideShow.component';
 
 let slideShowModule = angular.module('slideShow', [
-  uiRouter
+  ngAnimate,
+  ngTouch
 ])
 
 .component('slideShow', slideShowComponent)

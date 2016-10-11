@@ -4,7 +4,9 @@ import './slideShow.styl';
 
 let slideShowComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    count: '<'
+  },
   template,
   controller
 };

@@ -1,8 +1,8 @@
 <div class="container slider">
-  <img ng-repeat="slide in $ctrl.slides" class="slide slide-animation"
+  <img ng-repeat="slide in $ctrl.slides" class="slide" ng-swipe-right="$ctrl.nextSlide()" ng-swipe-left="$ctrl.prevSlide()"
        ng-hide="!$ctrl.isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
-  <a class="arrow prev" href="#" ng-click="$ctrl.nextSlide()">Prev</a>
-  <a class="arrow next" href="#" ng-click="$ctrl.prevSlide()">Next</a>
+  <a class="arrow prev" href="#" ng-click="$ctrl.prevSlide()"><i class="material-icons md-48">navigate_before</i></a>
+  <a class="arrow next" href="#" ng-click="$ctrl.nextSlide()"><i class="material-icons md-48">navigate_next</i></a>
   <nav class="nav">
     <div class="wrapper">
       <ul class="dots">

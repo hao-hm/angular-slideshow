@@ -1,17 +1,12 @@
-class SlideShowController {
-  constructor() {
+import Slide from './slide'
 
+class SlideShowController {
+  constructor($interval) {
+    this.interval = $interval;
   }
   $onInit() {
-    // this.slides = [
-    //   {image: 'https://unsplash.it/800/400/?random', description: 'Image 00'},
-    //   {image: 'https://unsplash.it/800/400/?random', description: 'Image 01'},
-    //   {image: 'https://unsplash.it/800/400/?random', description: 'Image 02'},
-    //   {image: 'https://unsplash.it/800/400/?random', description: 'Image 03'},
-    //   {image: 'https://unsplash.it/800/400/?random', description: 'Image 04'}
-    // ];
     this.slides = [];
-    this.generateSlides(10);
+    this.generateSlides(this.count);
 
     this.currentIndex = 0;
     this.setCurrentSlideIndex = function (index) {
@@ -22,21 +17,26 @@ class SlideShowController {
     };
 
     this.prevSlide = function () {
-      this.currentIndex = (this.currentIndex < this.slides.length - 1) ? ++this.currentIndex : 0;
-    };
-    this.nextSlide = function () {
       this.currentIndex = (this.currentIndex > 0) ? --this.currentIndex : this.slides.length - 1;
     };
+    this.nextSlide = function () {
+      this.currentIndex = (this.currentIndex < this.slides.length - 1) ? ++this.currentIndex : 0;
+    };
+
+    this.stopTime = this.interval(()=> this.nextSlide(), 5000);
   }
-  generateSlides(number){
-    for (var i = 0; i < number; i++) {
-      var slide = arguments[i];
-      this.slides.push({
-        image: `http://loremflickr.com/800/400?random=${i}`,
-        description: `Image ${i}`
-      })
+  $onDestroy(){
+    this.interval.cancel(this.stopTime);
+  }
+
+
+  generateSlides(count = 10){
+    for (var i = 0; i < count; i++) {
+      let slide = new Slide();
+      this.slides.push(slide);
     }
   }
 }
 
+SlideShowController.$inject = ['$interval'];
 export default SlideShowController;
