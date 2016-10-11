@@ -1,73 +1,68 @@
 @import url(https://fonts.googleapis.com/icon?family=Material%20Icons)
 
-.slider {
-  width: 800px;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-  background: #e6e6e6;
-  border: 20px solid #FFF;
-  margin-top: 20px;
-}
+.slider
+  max-width 800px
+  height 400px
+  overflow hidden
+  position relative
+  background #e6e6e6
+  border 20px solid #FFF
+  margin auto
+  img
+    width 100%
+    height auto
 
-.slide {
-  position: absolute;
+.slide
+  position absolute
   top 0
   left 0
-}
 
-
+/*---------------------------------------------------------
+Animation
+---------------------------------------------------------*/
 .slide.ng-hide-add,
 .slide.ng-hide-remove
-{
-  transition: 1000ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-}
+  transition 1000ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all
 
-.slide.ng-hide-add {
-  left: 0;
-}
-.slide.ng-hide-add.ng-hide-add-active {
-  left: -100%;
-}
+.slide.ng-hide-add
+  left 0
 
-.slide.ng-hide-remove {
-  left: 100%;
-}
-.slide.ng-hide-remove.ng-hide-remove-active{
-  left: 0;
-}
+.slide.ng-hide-add.ng-hide-add-active
+  left -100%
 
-.arrow {
-  position: absolute;
-  z-index: 1002;
-  display: block;
-  top: 50%;
-  margin-top: -35px;
-  width: 36px;
-  height: 71px;
-  outline: none;
-  cursor: pointer;
-}
+.slide.ng-hide-remove
+  left 100%
 
-.arrow.prev {
-  opacity: 0.2;
-  left: 20px;
-  transition: 0.2s linear all;
-}
+.slide.ng-hide-remove.ng-hide-remove-active
+  left 0
 
-.arrow.next {
-  opacity: 0.2;
-  right: 20px;
-  transition: 0.2s linear all;
-}
+/*---------------------------------------------------------
+Arrow
+---------------------------------------------------------*/
+.arrow
+  position absolute
+  z-index 1002
+  display block
+  top 50%
+  margin-top -35px
+  width 36px
+  height 71px
+  outline none
+  cursor pointer
 
-.arrow.prev:hover {
-  opacity: 1;
-}
+.arrow.prev
+  opacity 0.2
+  left 20px
+  transition 0.2s linear all
 
-.arrow.next:hover {
-  opacity: 1;
-}
+.arrow.next
+  opacity 0.2
+  right 20px
+  transition 0.2s linear all
+
+.arrow.prev:hover,
+.arrow.next:hover
+  opacity 1
 
 .material-icons.md-48
   font-size 48px
@@ -76,62 +71,55 @@
 NAV
 ---------------------------------------------------------*/
 
-.nav {
-  text-align: center;
-  display: block;
-  position: absolute;
-  z-index: 1002;
-  left: 0;
-  bottom: -4px;
-  right: 0;
-  height: 48px;
-}
+.nav
+  text-align center
+  display block
+  position absolute
+  z-index 1002
+  left 0
+  bottom -4px
+  right 0
+  height 48px
 
-.nonDraggableImage{
-  -webkit-user-drag: none;
-}
+.nonDraggableImage
+  -webkit-user-drag none
 
-.nav .wrapper {
-  margin: 0 auto;
-  width: 100%;
-  padding: 1em 0 .8em;
-}
+.nav .wrapper
+  margin 0 auto
+  width 100%
+  padding 1em 0 .8em
 
-.nav ul {
-  margin: 0;
-  width: 100%;
-}
+.nav ul
+  margin 0
+  width 100%
 
-.nav .dot, .nav .dot a {
-  display: inline-block;
-  zoom: 1;
-}
+.nav .dot, .nav .dot a
+  display inline-block
+  zoom 1
 
-.dots .dot {
-  position: relative;
-  margin: 0 8px;
-  width: 12px;
-  height: 12px;
-}
+.dots .dot
+  position relative
+  margin 0 8px
+  width 12px
+  height 12px
 
-.dots .dot a {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 6px;
-  height: 6px;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  background: transparent;
-  border: 1px solid #FFF;
-  outline: none;
-  box-shadow: none;
-  border-radius: 50%;
-  transition: background-color 0.25s, border-color 0.25s;
-}
+.dots .dot a
+  position absolute
+  top 2px
+  left 2px
+  width 6px
+  height 6px
+  text-indent 100%
+  white-space nowrap
+  overflow hidden
+  background transparent
+  border 1px solid #FFF
+  outline none
+  box-shadow none
+  border-radius 50%
+  transition background-color 0.25s, border-color 0.25s
 
-.dots .dot a.active {
-  border-color: transparent;
-  background-color: #FFF;
-}
+.dots .dot a.active
+  border-color transparent
+  background-color #FFF
+
