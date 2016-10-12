@@ -7,35 +7,59 @@
   position relative
   background #e6e6e6
   border 20px solid #FFF
-  margin auto
-  img
-    width 100%
-    height auto
+  margin 0 auto
+  box-sizing border-box
 
 .slide
+  width 100%
+  height 100%
+  display inline-block
   position absolute
   top 0
   left 0
+  animation-duration 0.50s
+  animation-timing-function ease-in-out
 
 /*---------------------------------------------------------
 Animation
 ---------------------------------------------------------*/
-.slide.ng-hide-add,
-.slide.ng-hide-remove
-  transition 1000ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all
 
 .slide.ng-hide-add
-  left 0
-
-.slide.ng-hide-add.ng-hide-add-active
-  left -100%
+  animation-name hide-animation
+.slide.prev.ng-hide-add
+  animation-name show-animation
+  animation-direction reverse
 
 .slide.ng-hide-remove
-  left 100%
+  animation-name show-animation
 
-.slide.ng-hide-remove.ng-hide-remove-active
-  left 0
+.slide.prev.ng-hide-remove
+  animation-name hide-animation
+  animation-direction reverse
 
+@keyframes hide-animation {
+  0% {
+    transform: translateX(0);
+    opacity 1
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity 0
+  }
+}
+
+@keyframes show-animation {
+  0% {
+    transform: translateX(100%);
+    opacity 0
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity 1
+  }
+}
 /*---------------------------------------------------------
 Arrow
 ---------------------------------------------------------*/
@@ -91,6 +115,7 @@ NAV
 
 .nav ul
   margin 0
+  padding 0
   width 100%
 
 .nav .dot, .nav .dot a
